@@ -1,0 +1,3 @@
+describe("ForecastSummary", () => {
+  it("renders", () => {});
+});

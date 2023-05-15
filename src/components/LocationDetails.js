@@ -1,8 +1,8 @@
 import React from "react";
 
 interface Props {
-  country: string;
-  city: string;
+  country: String;
+  city: String;
 }
 function LocationDetails({ country, city }: Props) {
   return (
