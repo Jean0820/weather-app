@@ -2,7 +2,7 @@
 import "../styles/App.css";
 import LocationDetails from "./LocationDetails";
 import forecastData from "../data/forecast.json";
-import ForecastSummary from "./LocationSummary";
+import ForecastSummary from "./ForecastSummary";
 
 function App() {
   const { location, forecasts } = forecastData;
