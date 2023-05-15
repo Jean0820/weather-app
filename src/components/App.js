@@ -7,7 +7,6 @@ function App() {
   const { location } = forecastData;
   return (
     <div className="App">
-      <h1>Weather App</h1>
       <LocationDetails country={location.country} city={location.city} />
     </div>
   );
