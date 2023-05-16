@@ -11,8 +11,8 @@ function ForecastSummaries() {
         <ForecastSummary
           key={index}
           date={forecast.date}
-          description={forecast.description}
           icon={forecast.icon}
+          description={forecast.description}
           maxTemp={forecast.temperature.max}
         />
       ))}
