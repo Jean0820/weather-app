@@ -1,18 +1,25 @@
 import React from "react";
+import "../styles/App.css";
+import WeatherIcon from "react-icons-weather";
+import moment from "moment";
 
 interface Props {
   date: String;
   description: String;
   icon: String;
-  maxTemp: Int16Array;
+  temperature: Int16Array;
 }
-function ForecastSummary({ date, description, icon, maxTemp }: Props) {
+function ForecastSummary({ date, description, icon, temperature }: Props) {
   return (
     <div className="forecast-summary">
-      <div className="forecast-summary__date">{date}</div>
-      <div className="forecast-summary__temperature">{icon}</div>
-      <div className="forecast-summary__description">{maxTemp} &deg;C</div>
-      <div className="forecast-summary__icon">{description}</div>
+      <div className="forecast-summary__date">
+        {moment(date).format("ddd Do MMM")}
+      </div>
+      <div className="forecast-summary__icon" data-testid="forecast-icon">
+        <WeatherIcon name="owm" iconId={icon} />
+      </div>
+      <div className="forecast-summary__temperature">{temperature} &deg;C</div>
+      <div className="forecast-summary__description">{description}</div>
     </div>
   );
 }

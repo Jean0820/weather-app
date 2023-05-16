@@ -1,5 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from "react";
+import "../styles/App.css";
 import ForecastSummary from "./ForecastSummary";
 import forecastData from "../data/forecast.json";
 

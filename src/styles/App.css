@@ -1,0 +1,8 @@
+.weather-app {
+    margin: 0 20px;
+  }
+
+.forecast-summaries {
+    display: flex;
+    justify-content: space-between;
+}
