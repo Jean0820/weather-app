@@ -4,7 +4,7 @@ import "../styles/App.css";
 import ForecastSummary from "./ForecastSummary";
 import forecastData from "../data/forecast.json";
 
-function ForecastSummaries() {
+function ForecastSummaries({ onForecastSelect }) {
   const { forecasts } = forecastData;
   return (
     <div className="forecast-summaries">
@@ -14,7 +14,8 @@ function ForecastSummaries() {
           date={forecast.date}
           icon={forecast.icon}
           description={forecast.description}
-          maxTemp={forecast.temperature.max}
+          onSelect={onForecastSelect}
+          temperature={forecast.temperature}
         />
       ))}
     </div>

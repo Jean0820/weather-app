@@ -4,5 +4,32 @@
 
 .forecast-summaries {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+.more-details-button{
+  font-size: smaller;
+  border: none;
+  padding-left: 0;
+  text-decoration: underline;
+  cursor: pointer;
+  background: none;
+}
+
+.more-details-button:hover{
+  color: rgb(76, 81, 81);
+  text-decoration: underline rgb(76, 81, 81);
+}
+
+.forecast-details{
+  padding-top: 1.5rem;
+  text-align: center;
+}
+
+.forecast-detail{
+  font-size: smaller;
+}
+
+.date{
+  margin: -11px;
 }
