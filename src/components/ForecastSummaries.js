@@ -1,11 +1,12 @@
-/* eslint-disable react/no-array-index-key */
+
 import React from "react";
 import "../styles/App.css";
 import ForecastSummary from "./ForecastSummary";
-import forecastData from "../data/forecast.json";
+import data from "../data/forecast.json"
+
 
 function ForecastSummaries({ onForecastSelect }) {
-  const { forecasts } = forecastData;
+  const { forecasts } = data;
   return (
     <div className="forecast-summaries">
       {forecasts.map((forecast, index) => (

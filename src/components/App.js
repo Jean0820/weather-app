@@ -1,21 +1,37 @@
 /* eslint-disable import/no-named-as-default-member */
 /* eslint-disable react/react-in-jsx-scope */
 import "../styles/App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from 'react';
+import axios from "axios";
 import LocationDetails from "./LocationDetails";
-import forecastData from "../data/forecast.json";
 import ForecastSummaries from "./ForecastSummaries";
 import ForecastDetails from "./ForecastDetails";
 
 function App() {
-  const { location, forecasts } = forecastData;
-  const [selectedDate, setSelectedDate] = useState(forecasts[1].date);
+  const [forecasts, setForecasts] = useState([]);
+  const [location, setLocation] = useState({ city: "", country: "" });
+  const [selectedDate, setSelectedDate] = useState('');
 
   const selectedForecast = forecasts.find(
     (forecast) => forecast.date === selectedDate
   );
+
   const handleForecastSelect = (date) => {
     setSelectedDate(date);
+  };
+
+  useEffect(() => {
+    getForecast(setSelectedDate, setForecasts, setLocation);
+  }, []);
+
+  const getForecast = (setSelectedDate, setForecasts, setLocation) => {
+    const endpoint = "https://mcr-codes-weather-app.herokuapp.com/forecast";
+  
+    axios.get(endpoint).then((response) => {
+      setSelectedDate(response.data.forecasts[0].date);
+      setForecasts(response.data.forecasts);
+      setLocation(response.data.location);
+    });
   };
   return (
     <div className="weather-app">
@@ -24,7 +40,7 @@ function App() {
         forecasts={forecasts}
         onForecastSelect={handleForecastSelect}
       />
-      <ForecastDetails forecast={selectedForecast} />
+      {selectedForecast && <ForecastDetails forecast={selectedForecast} />}
     </div>
   );
 }
